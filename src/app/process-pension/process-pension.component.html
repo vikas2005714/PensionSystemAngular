@@ -1,0 +1,33 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Input</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form #pensionform="ngForm" (ngSubmit)="submit(pensionform)">
+        <div class="modal-body">
+          <!-- <input type="text" #Addharno placeholder="Addhar No"  class="form-control" /> -->
+          <input
+          type="text"
+          id="aadharNumber"
+          name="aadharNumber"
+          placeholder="Enter your Aadhaar Number"
+          class="form-control"
+          ngModel
+          required
+          pattern="[0-9]{12}"
+        />
+          <!-- <span *ngIf="Addharno.value==null">Please Enter First</span> -->
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="validationError">
+          <p>{{ validationError }}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" >Submit</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>

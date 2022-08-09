@@ -1,0 +1,162 @@
+<section style="background-color: #eee;">
+    <div class="container py-5">
+      <div class="row">
+        <div [ngClass]="{'col-lg-8': flag === false, 'col-4': flag === true}" [class.template]="flag===false" >
+          <div class="card mb-4">
+            <div class="card-body text-center">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                class="rounded-circle img-fluid" style="width: 150px;">
+              <h5 class="my-3">{{pensionerName}}</h5>
+              <p class="text-muted mb-1">Welcome</p>
+              <p class="text-muted mb-4">Citizen Pension Portal</p>
+              <div class="d-flex justify-content-center mb-2">
+                <!-- <button type="button" class="btn btn-primary" (click)="getdetail()">Personal Details</button> -->
+                <button type="button" class="btn btn-primary ms-1" (click)="insertAadhar()" >Calculate PensionAmount</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8" >
+        <div class="row"  *ngIf = "flag" >
+          <div class="col-lg-8">
+            <div class="card mb-4">
+              <div class="card-body"  >
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0"> Name
+                    </p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0" >{{pensiondata.name}}</p> </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Pan Card Number</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{pensiondata.pan}}</p> </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Allowance</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{pensiondata.allowances}}</p> </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">salary Earned</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{pensiondata.salaryEarned}}</p> </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Pension Type</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{pensiondata.pensionType}}</p> </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Bank Name</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{pensiondata.bankName}}</p> </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Account Number</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{pensiondata.accountNo}}</p> </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Bank Type</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{pensiondata.bankType}}</p> </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Birth Date</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{pensiondata.dateOfBirth}}</p> </div>
+                </div>
+                <hr>
+              <div class="div">
+                <div class="btn btn-primary">Close</div>
+              </div>
+              </div>
+            </div>
+          </div> 
+        </div>  
+
+        <!-- <div class="row"  *ngIf= "flag1">
+            <div class="col-lg-5">
+              <div class="card" style="height: 12rem;" class="card bg-warning">
+                <div class="card-body">
+                  <h5 class="card-title">Pension Amount</h5>
+                  <p class="card-text">{{bankd.pensionAmount}}</p> 
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="card" style="height: 12rem;" class="card bg-warning">
+                <div class="card-body">
+                  <h5 class="card-title">Bank Charge</h5>
+                  <p class="card-text">{{bankd.bankServiceCharge}}</p>
+                </div>
+              </div>
+            </div>
+        </div> -->
+        <div class="container card card-table"  *ngIf="flag1">
+          <h1>Pension Detail</h1>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+
+
+                <th scope="col">Name</th>
+                <th scope="col">Pension Amount</th>
+                <th scope="col">Bank Charge</th>
+                <th scope="col">Full Details</th>
+
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{pensionerName}}</td>
+                <td>{{ bankd.pensionAmount}}</td>
+                <td>{{bankd.bankServiceCharge}}</td>
+                <td><button type="button" class="btn btn-primary" (click)="getdetail()">Check Full Details</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <app-process-pension></app-process-pension>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+  
