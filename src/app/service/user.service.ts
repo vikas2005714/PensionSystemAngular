@@ -53,6 +53,7 @@ export class UserService {
   {
     localStorage.removeItem("userInfo");
     localStorage.removeItem("AdharNo")
+    localStorage.removeItem("pensionerName")
   }
 
   autoLogout(expirationTime:number)

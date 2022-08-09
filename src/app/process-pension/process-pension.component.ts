@@ -30,24 +30,26 @@ export class ProcessPensionComponent implements OnInit {
 
   submit(form:NgForm) //Addharno:string)
   {
-    if (!form.valid) {
     var Addharno:any = form.value.aadharNumber;
+    if (!form.valid) {
+      console.log("invalid form");
     if (Addharno === '') {
       this.validationError = 'Please enter aadhaar number!';
     } else if (!Addharno.match(/^[0-9]+$/)) {
       this.validationError = 'Only integers allowed!';
      } 
-    //  else if (Addharno.length != 12) {
-    //   this.validationError = 'Length of the aadhaar number should 12';
-    // }
+     else if (Addharno.length != 12) {
+      this.validationError = 'Length of the aadhaar number should 5';
     }
-
-    if(form.valid)
-    {
+    }
+    else{
+      var Addharno:any = form.value.aadharNumber;
+      console.log("valid form");
       this.formModal.hide();
       form.reset();
       this.validationError = '';
     }
+    console.log(Addharno);
     this.service.getDetailsByAdhar(parseInt(Addharno)).subscribe((data:any)=>{
       if(data.status== "Success")
       {
