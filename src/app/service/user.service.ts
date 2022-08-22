@@ -31,7 +31,7 @@ export class UserService {
   Login(email:string,password:string)
   {
     
-   return (this.http.post<any>("https://localhost:44398/api/Users/UserLogin",
+   return (this.http.post<any>("http://40.76.151.198/api/Users/UserLogin",
     {
       UserName:email,
       Password : password
@@ -80,7 +80,7 @@ export class UserService {
     let adharno = localStorage.getItem('AdharNo') as string;
 
     let queryParams = new HttpParams().append("Ano",adharno);
-    return(this.http.get<any>("https://localhost:44394/api/PensionDetails/PensionDetails",{headers:header,params:queryParams}))
+    return(this.http.get<any>("http://40.76.148.191/api/PensionDetails/PensionDetails",{headers:header,params:queryParams}))
   }
 
   // updatedetails(parks:PensionDatas)
@@ -108,7 +108,7 @@ export class UserService {
     
     console.log(AddharNo);
 
-    return(this.http.post("https://localhost:44361/api/ProcessPension/ProcessPensionDetails",
+    return(this.http.post("http://40.76.149.135/api/ProcessPension/ProcessPensionDetails",
     {
       addharNo:AddharNo
     },

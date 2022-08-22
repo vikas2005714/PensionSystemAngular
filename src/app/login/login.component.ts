@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
     let email = this.registrationForm.controls["email"];
     let password = this.registrationForm.controls["password"];
     this.service.Login(email.value,password.value).subscribe((data)=>{
+
       if(data.status == "Success" && data.user.token != null)
       {
       this.service.user = data.user;
@@ -54,6 +55,7 @@ export class LoginComponent implements OnInit {
       
     },error => {
       console.log(error);
+      this.alter.erroalert("User Not Found");
     })
     console.log(email.value);
 

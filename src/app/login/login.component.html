@@ -14,10 +14,10 @@
                 <h2 class="login-text">Login</h2>
                     <form [formGroup] = "registrationForm" (ngSubmit)="submit()" >
                         <div class="form-group">
-                        <label>Email address</label>
+                        <label>Username</label>
                         <input type="text" class="form-control"  formControlName = "email"  placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                        <span style="color: red;" *ngIf="registrationForm.controls['email'].invalid && registrationForm.controls['email'].touched">Email Required</span>
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your Username with anyone else.</small>
+                        <span style="color: red;" *ngIf="registrationForm.controls['email'].invalid && registrationForm.controls['email'].touched">userName Required</span>
                         </div>
                         <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
